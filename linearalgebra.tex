@@ -1,0 +1,114 @@
+\documentclass[10pt,landscape]{scrartcl}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{ifthen}
+\usepackage[landscape]{geometry}
+\usepackage{amsmath,amsthm,amsfonts,amssymb}
+\usepackage{color,graphicx,overpic}
+\usepackage{hyperref}
+
+
+% This sets page margins to .5 inch if using letter paper, and to 1cm
+% if using A4 paper. (This probably isn't strictly necessary.)
+% If using another size paper, use default 1cm margins.
+\ifthenelse{\lengthtest { \paperwidth = 11in}}
+    { \geometry{top=.5in,left=.5in,right=.5in,bottom=.5in} }
+    {\ifthenelse{ \lengthtest{ \paperwidth = 297mm}}
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+        {\geometry{top=1cm,left=1cm,right=1cm,bottom=1cm} }
+    }
+
+% Turn off header and footer
+\pagestyle{empty}
+
+% Redefine section commands to use less space
+\makeatletter
+\renewcommand{\section}{\@startsection{section}{1}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%x
+                                {\normalfont\large\bfseries}}
+\renewcommand{\subsection}{\@startsection{subsection}{2}{0mm}%
+                                {-1explus -.5ex minus -.2ex}%
+                                {0.5ex plus .2ex}%
+                                {\normalfont\normalsize\bfseries}}
+\renewcommand{\subsubsection}{\@startsection{subsubsection}{3}{0mm}%
+                                {-1ex plus -.5ex minus -.2ex}%
+                                {1ex plus .2ex}%
+                                {\normalfont\small\bfseries}}
+\makeatother
+
+% Define BibTeX command
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+% Don't print section numbers
+\setcounter{secnumdepth}{0}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt plus 0.5ex}
+
+%My Environments
+\newtheorem{example}[section]{Example}
+% -----------------------------------------------------------------------
+
+\author{Gerold}
+\begin{document}
+\raggedright
+\footnotesize
+\begin{multicols}{3}
+
+
+% multicol parameters
+% These lengths are set only within the two main columns
+%\setlength{\columnseprule}{0.25pt}
+\setlength{\premulticols}{1pt}
+\setlength{\postmulticols}{1pt}
+\setlength{\multicolsep}{1pt}
+\setlength{\columnsep}{2pt}
+
+\begin{center}
+     \Large{\underline{Linear Algebra cheat sheet}} \\
+\end{center}
+
+\section{Vectors}
+dot product: $u * v = ||u|| * ||v|| * cos (\phi) = u_x v_x + u_y v_y$\\
+cross product: $u \times v = \left (\begin{array}{c}u_y v_z - u_z v_y\\u_z v_x - u_x v_z\\u_x v_y - u_y v_x\\\end{array}\right)$
+
+enclosed angle:
+\begin{align*}
+cos \phi = \frac{u * v}{||u|| * ||v||}\\
+||u|| * ||v|| = \sqrt {(u^2_x + u^2_y) (v^2_x + v^2_y)}
+\end{align*}
+
+
+\section{Matrices}
+\subsection{determinants}
+\[det (A \cdot B) = det (A) \cdot det (B)\]\\
+TODO: other rules
+
+\subsection{common properties}
+symmetric: $A = A^T$\\
+orthogonal: $A^T = A^{-1}$\\
+diagonal: Eigenvalues on main diagonale
+
+\subsubsection{regular / invertable / nonsingular}
+\[det(A)^{-1} = det(A^{-1})\]\\
+
+\subsubsection{diagonalizable}
+If A can be diagonalized:
+\[
+P^{-1}AP=\begin{pmatrix}\lambda_{1}\\
+& \ddots\\
+& & \lambda_{n}\end{pmatrix}
+\]
+then:
+\[AP=P\begin{pmatrix}\lambda_{1}\\
+& \ddots\\
+& & \lambda_{n}\end{pmatrix}\]
+
+\subsubsection{triangular}
+
+
+\end{multicols}
+\end{document}
