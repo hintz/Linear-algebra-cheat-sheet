@@ -83,7 +83,7 @@ cos \phi = \frac{u * v}{||u|| * ||v||}\\
 
 
 \section{Matrices}
-\subsection{operations}
+\subsection{basic operations}
 transpose: $[A^\mathrm{T}]_{ij} = [A]_{ji}$: "mirror over main diagonal"\\
 multiply: $A_{N \times M} * B_{R \times K} = M_{N \times K}$\\
 invert: $\begin{bmatrix}
@@ -94,7 +94,10 @@ a & b \\ c & d \\
 \end{bmatrix} =
 \frac{1}{ad - bc} \begin{bmatrix}
 \,\,\,d & \!\!-b \\ -c & \,a \\ 
-\end{bmatrix}$
+\end{bmatrix}$\\
+norm:\\
+condition:
+
 
 
 \subsection{determinants}
@@ -105,11 +108,12 @@ TODO: other rules
 
 \subsection{definiteness}
 
+
 \subsection{common properties}
 square: $N \times N$\\
 symmetric: $A = A^T$\\
 orthogonal: $A^T = A^{-1}$\\
-diagonal: 0 except $a_kk$\\
+diagonal: 0 except $a_{kk}$\\
 $\Rightarrow$ Eigenvalues on main diagonale
 
 \subsubsection{regular = invertible = nonsingular}
@@ -136,6 +140,9 @@ then:
 \[AP=P\begin{pmatrix}\lambda_{1}\\
 & \ddots\\
 & & \lambda_{n}\end{pmatrix}\]
+
+\subsection{diagonally dominant matrix}
+$\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$
 
 \subsubsection{triangular}
 
