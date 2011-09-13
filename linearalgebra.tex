@@ -84,6 +84,18 @@ cos \phi = \frac{u * v}{||u|| * ||v||}\\
 
 \section{Matrices}
 \subsection{operations}
+transpose: $[A^\mathrm{T}]_{ij} = [A]_{ji}$: "mirror over main diagonal"\\
+multiply: $A_{N \times M} * B_{R \times K} = M_{N \times K}$\\
+invert: $\begin{bmatrix}
+a & b \\ c & d \\ 
+\end{bmatrix}^{-1} =
+\frac{1}{\det(\mathbf{A})} \begin{bmatrix}
+\,\,\,d & \!\!-b \\ -c & \,a \\ 
+\end{bmatrix} =
+\frac{1}{ad - bc} \begin{bmatrix}
+\,\,\,d & \!\!-b \\ -c & \,a \\ 
+\end{bmatrix}$
+
 
 \subsection{determinants}
 $det (A \cdot B) = det (A) \cdot det (B)$\\
@@ -100,8 +112,18 @@ orthogonal: $A^T = A^{-1}$\\
 diagonal: 0 except $a_kk$\\
 $\Rightarrow$ Eigenvalues on main diagonale
 
-\subsubsection{regular / invertable / nonsingular}
-$det(A)^{-1} = det(A^{-1})$\\
+\subsubsection{regular = invertible = nonsingular}
+A is invertible iff:\\
+\begin{list}{}
+\item There is a matrix $B := A^{-1}$ such that $AB = I = BA$.
+\item $det(A) \ne 0$
+\item T$Ax = b$ has exactly one solution for each b.
+\item The columns of $A$ are linearly independent.
+\end{list}
+\smallbreak
+$\Rightarrow det(A)^{-1} = det(A^{-1})$\\
+$\Rightarrow (A^{-1})^{-1} = A$\\
+$\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
 
 \subsubsection{diagonalizable}
 If A can be diagonalized:
@@ -116,6 +138,8 @@ then:
 & & \lambda_{n}\end{pmatrix}\]
 
 \subsubsection{triangular}
+
+\subsection{rank / kernel / trance}
 
 
 \end{multicols}
