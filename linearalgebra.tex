@@ -116,8 +116,8 @@ orthogonal: $A^T = A^{-1}$\\
 diagonal: 0 except $a_{kk}$\\
 $\Rightarrow$ Eigenvalues on main diagonale
 
-\subsubsection{regular = invertible = nonsingular}
-A is invertible iff:\\
+\subsubsection{nonsingular}
+A is nonsingular = invertible = regular iff:\\
 \begin{list}{}
 \item There is a matrix $B := A^{-1}$ such that $AB = I = BA$.
 \item $det(A) \ne 0$
@@ -130,23 +130,31 @@ $\Rightarrow (A^{-1})^{-1} = A$\\
 $\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
 
 \subsubsection{diagonalizable}
-If A can be diagonalized:
+$A^{N \times N}$ can be diagonalized iff it has $n$ linear independant eigenvectors.
+Then, there is an invertible $T$, such that:
 \[
-P^{-1}AP=\begin{pmatrix}\lambda_{1}\\
+D := T^{-1}AT=\begin{pmatrix}\lambda_{1}\\
 & \ddots\\
 & & \lambda_{n}\end{pmatrix}
 \]
-then:
-\[AP=P\begin{pmatrix}\lambda_{1}\\
+\[
+\begin{array}{ccc}
+A = T^{-1}DT & \mathbf{and} & AT=T\begin{pmatrix}\lambda_{1}\\
 & \ddots\\
-& & \lambda_{n}\end{pmatrix}\]
+& & \lambda_{n}\end{pmatrix}
+\end{array}
+\]
+T can be created with eigenvectors of A.
 
 \subsection{diagonally dominant matrix}
 $\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$
 
-\subsubsection{triangular}
+\subsubsection{Hermitian matrix}
 
-\subsection{rank / kernel / trance}
+\subsubsection{triangular}
+$\Rightarrow$ Eigenvalues on main diagonale
+
+\subsection{rank / kernel / trace}
 
 
 \end{multicols}
