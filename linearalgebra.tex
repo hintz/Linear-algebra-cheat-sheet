@@ -74,7 +74,11 @@
 
 \section{Vectors}
 dot product: $u * v = ||u|| * ||v|| * cos (\phi) = u_x v_x + u_y v_y$\\
-cross product: $u \times v = \left (\begin{array}{c}u_y v_z - u_z v_y\\u_z v_x - u_x v_z\\u_x v_y - u_y v_x\\\end{array}\right)$
+cross product: $u \times v = \left (\begin{array}{c}u_y v_z - u_z v_y\\u_z v_x - u_x v_z\\u_x v_y - u_y v_x\\\end{array}\right)$\\
+norms:\\
+$\|x\|_p := \sqrt[p]{\sum_{i=1}^n |x_i|^p}$\\
+$\|x\|_1 := \sum_{i=1}^{n} |x_i|$ \;
+$\|x\|_{\infty} = \max \limits _i |x_i|$\\
 
 enclosed angle:
 \begin{align*}
@@ -86,6 +90,10 @@ cos \phi = \frac{u * v}{||u|| * ||v||}\\
 \section{Matrices}
 \subsection{basic operations}
 transpose: $[A^\mathrm{T}]_{ij} = [A]_{ji}$: "mirror over main diagonal"\\
+conjungate transpose / adjugate: 
+$A^* = (\overline{A})^\mathrm{T} = \overline{A^\mathrm{T}}$\\
+"transpose and complex conjugate all entries"\\(same as transpose for real matrices)\\
+
 multiply: $A_{N \times M} * B_{R \times K} = M_{N \times K}$\\
 invert: $\begin{bmatrix}
 a & b \\ c & d \\ 
@@ -96,8 +104,17 @@ a & b \\ c & d \\
 \frac{1}{ad - bc} \begin{bmatrix}
 \,\,\,d & \!\!-b \\ -c & \,a \\ 
 \end{bmatrix}$\\
+
+
+
 norm:\\
+
+$\left \| A \right \| _p = \max \limits _{x \ne 0} \frac{\left \| A x\right \| _p}{\left \| x\right \| _p}\,$, induced by vector p-norm
+$\left \| A \right \| _2 = \sqrt{\lambda_\text{max} (A^T A)}$\\
+$\left \| A \right \| _1 = \max \limits _j \sum _{i=1} ^m | a_{ij} |, $\\
+$\left \| A \right \| _\infty = \max \limits _i \sum _{j=1} ^n | a_{ij} |,$\\
 condition:
+$\text{cond}(A) = \left \| A \right \| \cdot \left \| A^{-1} \right \|$
 
 
 
@@ -108,7 +125,7 @@ For 3$\times$3 matrices (Sarrus rule):\\
 
 \textbf{arithmetic rules:}\\
 $\det (A \cdot B) = \det (A) \cdot \det (B)$\\
-$\det (A^{-1}) = \frac 1 {\det (A)}$\\
+$\det (A^{-1}) = \det (A)^{-1}$\\
 $\det\left(rA\right) = r^n\det A\,\,$,  for all $A^{n\times n}$ and scalars $r$
 
 \subsection{eigenvalues, eigenvectors, eigenspace}
@@ -116,28 +133,48 @@ $\det\left(rA\right) = r^n\det A\,\,$,  for all $A^{n\times n}$ and scalars $r$
 2. Any vector $x$ that satisfies $\left(A - \lambda_i I\right) x = 0$ is \textbf{eigenvector} for $\lambda_i$.
 3. $\text{Eig}_A(\lambda_i) = \{x \in\mathbb{C}^n\,:\, (A -  \lambda_i) x = 0\}$ is \textbf{eigenspace} for $\lambda_i$.
 
+
 \subsection{definiteness}
+defined on n$\times$n square matrices:\\$\forall\lambda\in\sigma(A).$\\
+\quad $\lambda > 0 \iff$ positive-definite\\
+\quad $\lambda \ge 0 \iff$ positive-semidefinite\\
+\quad $\lambda < 0 \iff$ negative-definite\\
+\quad $\lambda \le 0 \iff$ negative-semidefinite\\
+if none true (positive and negative $\lambda$ exist): indefinite\\
+equivalent: eg. $x^TAx > 0$ $\iff$ positive-definite
+
 
 \subsection{obvious properties}
 \textbf{square}: $N \times N$\\
 \textbf{symmetric}: $A = A^T$\\
 \textbf{diagonal}: 0 except $a_{kk}$\\
 $\Rightarrow$ implies triangular (eigenvalues on main diagonale)
+
+
 \subsection{orthogonal}
 $A^T = A^{-1}$
+$\Rightarrow$ normal and diagonalizable\\
+
+
+\subsection{unitary}
+Complex analogy to orthogonal: A complex square matrix is unitary if all column vectors are orthonormal\\
+$\Rightarrow$ diagonolizable\\
+$\Rightarrow$ $cond_2(A) = 1$\\
+$\Rightarrow$ $|det(A)| = 1$\\
+
 
 \subsection{nonsingular}
 A is nonsingular = invertible = regular iff:\\
-\begin{list}{}
-\item There is a matrix $B := A^{-1}$ such that $AB = I = BA$.
-\item $det(A) \ne 0$
-\item T$Ax = b$ has exactly one solution for each b.
-\item The columns of $A$ are linearly independent.
-\end{list}
+\quad There is a matrix $B := A^{-1}$ such that $AB = I = BA$\\
+\quad $det(A) \ne 0$\\
+\quad T$Ax = b$ has exactly one solution for each b\\
+\quad The columns of $A$ are linearly independent\\
+
 \smallbreak
 $\Rightarrow det(A)^{-1} = det(A^{-1})$\\
 $\Rightarrow (A^{-1})^{-1} = A$\\
 $\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
+
 
 \subsection{diagonalizable}
 $A^{N \times N}$ can be diagonalized iff it has $n$ linear independant eigenvectors.
@@ -157,24 +194,58 @@ A = T^{-1}DT & \mathbf{and} & AT=T\begin{pmatrix}\lambda_{1}\\
 T can be created with eigenvectors of A.
 
 \subsection{diagonally dominant matrix}
-$\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$
+$\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$\\
+$\Rightarrow$ nonsingular\\
+
+
 \subsection{Hermitian}
+
+
 \subsection{triangular}
+A square matrix R is right triangular:\\
+$\begin{pmatrix} 
+a_{11} & a_{12} & a_{13} \\
+0 & a_{22} & a_{23} \\
+0 & 0 & a_{33}
+\end{pmatrix}$\\
 $\Rightarrow$ Eigenvalues on main diagonale
-\subsection{unitary}
-$\Rightarrow$ $cond_2(A) = 1$
+
+
 \subsection{idempotent}
+
+
 \subsection{adjugate}
+
+
 \subsection{block matrices}
+
+
+Let B, C be submatrices, and A, D square submatrices. Then:\\
 $\det\begin{pmatrix}A& 0\\ C& D\end{pmatrix} = \det\begin{pmatrix}A& B\\ 0& D\end{pmatrix} = \det(A) \det(D)$
 
+\subsection{minors}
+
+
 \subsection{rank}
+
+
 \subsection{kernel}
+
+
 \subsection{trace}
 defined on n$\times$n square matrices: $\mathrm{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$\\
 (sum of the elements on the main diagonal)
+
+
 \subsection{span}
+
+
 \subsection{spectrum}
+
+
 $\sigma(A)=\{\lambda\in\mathbb{C}\,:\,\lambda \text{ is eigenvalue of A}\}$
+
+
+
 \end{multicols}
 \end{document}
