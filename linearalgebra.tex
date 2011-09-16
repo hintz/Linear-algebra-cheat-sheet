@@ -104,19 +104,19 @@ condition:
 $det (A \cdot B) = det (A) \cdot det (B)$\\
 TODO: other rules
 
-\subsection{eigenvalues/vectors}
+\subsection{eigenvalues / eigenvectors / eigenspace}
 
 \subsection{definiteness}
 
+\subsection{obvious properties}
+\textbf{square}: $N \times N$\\
+\textbf{symmetric}: $A = A^T$\\
+\textbf{diagonal}: 0 except $a_{kk}$\\
+$\Rightarrow$ implies triangular (eigenvalues on main diagonale)
+\subsection{orthogonal}
+$A^T = A^{-1}$
 
-\subsection{common properties}
-square: $N \times N$\\
-symmetric: $A = A^T$\\
-orthogonal: $A^T = A^{-1}$\\
-diagonal: 0 except $a_{kk}$\\
-$\Rightarrow$ Eigenvalues on main diagonale
-
-\subsubsection{nonsingular}
+\subsection{nonsingular}
 A is nonsingular = invertible = regular iff:\\
 \begin{list}{}
 \item There is a matrix $B := A^{-1}$ such that $AB = I = BA$.
@@ -129,7 +129,7 @@ $\Rightarrow det(A)^{-1} = det(A^{-1})$\\
 $\Rightarrow (A^{-1})^{-1} = A$\\
 $\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
 
-\subsubsection{diagonalizable}
+\subsection{diagonalizable}
 $A^{N \times N}$ can be diagonalized iff it has $n$ linear independant eigenvectors.
 Then, there is an invertible $T$, such that:
 \[
@@ -148,14 +148,18 @@ T can be created with eigenvectors of A.
 
 \subsection{diagonally dominant matrix}
 $\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$
-
-\subsubsection{Hermitian matrix}
-
-\subsubsection{triangular}
+\subsection{Hermitian}
+\subsection{triangular}
 $\Rightarrow$ Eigenvalues on main diagonale
+\subsection{unitary}
+$\Rightarrow$ $cond_2(A) = 1$
+\subsection{idempotent}
+\subsection{adjugate}
 
-\subsection{rank / kernel / trace}
-
-
+\subsection{rank}
+\subsection{kernel}
+\subsection{trace}
+\subsection{span}
+\subsection{spectrum}
 \end{multicols}
 \end{document}
