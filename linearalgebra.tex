@@ -144,15 +144,39 @@ if none true (positive and negative $\lambda$ exist): indefinite\\
 equivalent: eg. $x^TAx > 0$ $\iff$ positive-definite
 
 
-\subsection{obvious properties}
+\subsection{rank}
+Let A be a matrix and $f(x) = Ax$.\\
+$\text{rank}(A) = \text{rank}(f) = \dim (\mathrm{im}(f))$ \\
+\quad = number of linearly independent column vectors of A\\
+\quad = number of non-zero rows in A after applying Gauss\\
+
+
+\subsection{kernel}
+$\text{kern}(A) = \left\{ x\in\mathbb{R}^n : Ax = 0 \right\}$ \quad (the set of vectors mapping to 0)\\
+For nonsingular A this has one element and $\text{dim}(\text{kern}(A)) = 0$ (?)\\
+
+
+\subsection{trace}
+defined on n$\times$n square matrices: $\mathrm{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$\\
+(sum of the elements on the main diagonal)
+
+
+\subsection{span}
+Let $v_1,\dots,v_r$ be the column vectors of A. Then:\\
+$\operatorname{span}(A) =  \{ {\lambda _1 v_1  +  \dots  + \lambda _r v_r \mid \lambda _1 , \dots ,\lambda _r  \in \mathbb{R}} \}$
+
+
+\subsection{spectrum}
+$\sigma(A)=\{\lambda\in\mathbb{C}\,:\,\lambda \text{ is eigenvalue of A}\}$
+
+
+\subsection{properties}
 \textbf{square}: $N \times N$\\
 \textbf{symmetric}: $A = A^T$\\
 \textbf{diagonal}: 0 except $a_{kk}$\\
 $\Rightarrow$ implies triangular (eigenvalues on main diagonale)
 
-
-\subsection{orthogonal}
-$A^T = A^{-1}$
+\textbf{orthogonal}: $A^T = A^{-1}$\\
 $\Rightarrow$ normal and diagonalizable\\
 
 
@@ -164,11 +188,13 @@ $\Rightarrow$ $|det(A)| = 1$\\
 
 
 \subsection{nonsingular}
-A is nonsingular = invertible = regular iff:\\
+$A^{n \times n}$ is nonsingular = invertible = regular iff:\\
 \quad There is a matrix $B := A^{-1}$ such that $AB = I = BA$\\
 \quad $det(A) \ne 0$\\
-\quad T$Ax = b$ has exactly one solution for each b\\
-\quad The columns of $A$ are linearly independent\\
+\quad $Ax = b$ has exactly one solution for each b\\
+\quad The column vectors of $A$ are linearly independent\\
+\quad $\text{rank}(A) = n$\\
+\quad $f(x) = Ax$ is bijective (?)\\
 
 \smallbreak
 $\Rightarrow det(A)^{-1} = det(A^{-1})$\\
@@ -177,8 +203,10 @@ $\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
 
 
 \subsection{diagonalizable}
-$A^{N \times N}$ can be diagonalized iff it has $n$ linear independant eigenvectors.
-Then, there is an invertible $T$, such that:
+$A^{n \times n}$ can be diagonalized iff:\\
+\quad it has $n$ linear independant eigenvectors\\
+\quad all eigenvalues are real and distinct\\
+\quad there is an invertible $T$, such that:
 \[
 D := T^{-1}AT=\begin{pmatrix}\lambda_{1}\\
 & \ddots\\
@@ -186,12 +214,11 @@ D := T^{-1}AT=\begin{pmatrix}\lambda_{1}\\
 \]
 \[
 \begin{array}{ccc}
-A = T^{-1}DT & \mathbf{and} & AT=T\begin{pmatrix}\lambda_{1}\\
-& \ddots\\
-& & \lambda_{n}\end{pmatrix}
+A = T^{-1}DT & \mathbf{and} & AT=TD
 \end{array}
 \]
-T can be created with eigenvectors of A.
+$\lambda_1,\dots,\lambda_n$ are the eigenvalues of $A$!\\
+T can be created with eigenvectors of A and is nonsingular!\\
 
 \subsection{diagonally dominant matrix}
 $\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$\\
@@ -199,6 +226,9 @@ $\Rightarrow$ nonsingular\\
 
 
 \subsection{Hermitian}
+A square matrix $A$ where $A^* = A$ (equal to its adjugate)\\
+A real matrix is Hermitian iff symmetric\\
+$\Rightarrow$ $\Im(\text{det}(A)) = 0$ (determinante is real)
 
 
 \subsection{triangular}
@@ -212,40 +242,15 @@ $\Rightarrow$ Eigenvalues on main diagonale
 
 
 \subsection{idempotent}
-
-
-\subsection{adjugate}
+A square matrix $A$ for which $AA = A$. \\
+ \textbf{TODO: Use cases?}
 
 
 \subsection{block matrices}
-
-
 Let B, C be submatrices, and A, D square submatrices. Then:\\
 $\det\begin{pmatrix}A& 0\\ C& D\end{pmatrix} = \det\begin{pmatrix}A& B\\ 0& D\end{pmatrix} = \det(A) \det(D)$
 
 \subsection{minors}
-
-
-\subsection{rank}
-
-
-\subsection{kernel}
-
-
-\subsection{trace}
-defined on n$\times$n square matrices: $\mathrm{tr}(A) = a_{11} + a_{22} + \dots + a_{nn}$\\
-(sum of the elements on the main diagonal)
-
-
-\subsection{span}
-
-
-\subsection{spectrum}
-
-
-$\sigma(A)=\{\lambda\in\mathbb{C}\,:\,\lambda \text{ is eigenvalue of A}\}$
-
-
 
 \end{multicols}
 \end{document}
