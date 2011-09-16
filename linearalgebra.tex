@@ -53,6 +53,10 @@
 \newtheorem{example}[section]{Example}
 % -----------------------------------------------------------------------
 
+
+\newcommand{\sect}[1]{\vspace{1mm}\textbf{#1}\\}
+
+
 \author{Gerold}
 \begin{document}
 \raggedright
@@ -176,18 +180,16 @@ $\sigma(A)=\{\lambda\in\mathbb{C}\,:\,\lambda \text{ is eigenvalue of A}\}$
 \textbf{diagonal}: 0 except $a_{kk}$\\
 $\Rightarrow$ implies triangular (eigenvalues on main diagonale)
 
-\textbf{orthogonal}: $A^T = A^{-1}$\\
+\sect{orthogonal}: $A^T = A^{-1}$
 $\Rightarrow$ normal and diagonalizable\\
 
-
-\subsection{unitary}
+\sect{unitary}
 Complex analogy to orthogonal: A complex square matrix is unitary if all column vectors are orthonormal\\
 $\Rightarrow$ diagonolizable\\
 $\Rightarrow$ $cond_2(A) = 1$\\
 $\Rightarrow$ $|det(A)| = 1$\\
 
-
-\subsection{nonsingular}
+\sect{nonsingular}
 $A^{n \times n}$ is nonsingular = invertible = regular iff:\\
 \quad There is a matrix $B := A^{-1}$ such that $AB = I = BA$\\
 \quad $det(A) \ne 0$\\
@@ -201,8 +203,7 @@ $\Rightarrow det(A)^{-1} = det(A^{-1})$\\
 $\Rightarrow (A^{-1})^{-1} = A$\\
 $\Rightarrow (A^{T})^{-1} = (A^{-1})^{T}$
 
-
-\subsection{diagonalizable}
+\sect{diagonalizable}
 $A^{n \times n}$ can be diagonalized iff:\\
 \quad it has $n$ linear independant eigenvectors\\
 \quad all eigenvalues are real and distinct\\
@@ -220,18 +221,18 @@ A = T^{-1}DT & \mathbf{and} & AT=TD
 $\lambda_1,\dots,\lambda_n$ are the eigenvalues of $A$!\\
 T can be created with eigenvectors of A and is nonsingular!\\
 
-\subsection{diagonally dominant matrix}
+\sect{diagonally dominant matrix}
 $\forall i. |a_{ii}| \geq \sum_{j\neq i} |a_{ij}| \quad$\\
 $\Rightarrow$ nonsingular\\
 
 
-\subsection{Hermitian}
+\sect{Hermitian}
 A square matrix $A$ where $A^* = A$ (equal to its adjugate)\\
 A real matrix is Hermitian iff symmetric\\
 $\Rightarrow$ $\Im(\text{det}(A)) = 0$ (determinante is real)
 
 
-\subsection{triangular}
+\sect{triangular}
 A square matrix is right triangular (wlog n = 3):\\
 $\begin{pmatrix} 
 a_{11} & a_{12} & a_{13} \\
@@ -241,12 +242,12 @@ a_{11} & a_{12} & a_{13} \\
 $\Rightarrow$ Eigenvalues on main diagonale
 
 
-\subsection{idempotent}
+\sect{idempotent}
 A square matrix $A$ for which $AA = A$. \\
  \textbf{TODO: Use cases?}
 
 
-\subsection{block matrices}
+\sect{block matrices}
 Let B, C be submatrices, and A, D square submatrices. Then:\\
 $\det\begin{pmatrix}A& 0\\ C& D\end{pmatrix} = \det\begin{pmatrix}A& B\\ 0& D\end{pmatrix} = \det(A) \det(D)$
 
