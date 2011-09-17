@@ -180,7 +180,7 @@ $\sigma(A)=\{\lambda\in\mathbb{C}\,:\,\lambda \text{ is eigenvalue of A}\}$
 \textbf{diagonal}: 0 except $a_{kk}$\\
 $\Rightarrow$ implies triangular (eigenvalues on main diagonale)
 
-\sect{orthogonal}: $A^T = A^{-1}$
+\sect{orthogonal} $A^T = A^{-1}$
 $\Rightarrow$ normal and diagonalizable\\
 
 \sect{unitary}
@@ -188,6 +188,7 @@ Complex analogy to orthogonal: A complex square matrix is unitary if all column 
 $\Rightarrow$ diagonolizable\\
 $\Rightarrow$ $cond_2(A) = 1$\\
 $\Rightarrow$ $|det(A)| = 1$\\
+
 
 \sect{nonsingular}
 $A^{n \times n}$ is nonsingular = invertible = regular iff:\\
@@ -244,7 +245,7 @@ $\Rightarrow$ Eigenvalues on main diagonale
 
 \sect{idempotent}
 A square matrix $A$ for which $AA = A$. \\
- \textbf{TODO: Use cases?}
+%TODO: Use cases?
 
 
 \sect{block matrices}
@@ -252,6 +253,10 @@ Let B, C be submatrices, and A, D square submatrices. Then:\\
 $\det\begin{pmatrix}A& 0\\ C& D\end{pmatrix} = \det\begin{pmatrix}A& B\\ 0& D\end{pmatrix} = \det(A) \det(D)$
 
 \subsection{minors}
+A matrix A has minors $M_{i,j} := \text{remove row i and column j from A}$\\
+principle minors: \{$\text{det}(\text{upper left $i \times i$\, matrix of A}) \,:\, i..n\}$\\
+\textbf{Sylvester's criterion} for hermitian A:\\
+$\Rightarrow$ A is positiv-definite iff all principle minors are positive\\
 
 \end{multicols}
 \end{document}
